@@ -16,5 +16,9 @@
         "react-dom": "^17.0.2",
         "sass": "^1.32.11",
         "vite": "^3.0.0"
+    },
+    "dependencies": {
+        "pusher-js": "^7.4.0",
+        "simple-peer": "^9.11.1"
     }
 }
