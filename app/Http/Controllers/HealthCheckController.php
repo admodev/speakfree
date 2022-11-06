@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use SpeakFree\Domain\Constants\HealthCheckConstants;
+use SpeakFree\Helpers\ResponseHelper;
 
 class HealthCheckController extends Controller
 {
@@ -17,7 +18,7 @@ class HealthCheckController extends Controller
   protected function checkServerHealth()
   {
     try {
-      return response()->json(['message' => HealthCheckConstants::OKAY_MESSAGE], HealthCheckConstants::OKAY_CODE);
+      return ResponseHelper::createResponse(HealthCheckConstants::OKAY_MESSAGE);
     } catch (Exception $error) {
       return $this->logServerDownError($error);
     }
