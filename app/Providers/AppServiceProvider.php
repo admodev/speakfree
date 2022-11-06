@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+          'SpeakFree\Domain\RepositoryInterface',
+          'SpeakFree\Domain\Repository'
+        );
     }
 
     /**
