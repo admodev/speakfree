@@ -3,8 +3,9 @@
 namespace SpeakFree\Helpers;
 
 use Exception;
-use Illuminate\Support\Facades\Log;
+
 use SpeakFree\Domain\Constants\HealthCheckConstants;
+use SpeakFree\Helpers\FatalExceptionLogHelper;
 
 class ResponseHelper
 {
@@ -18,7 +19,7 @@ class ResponseHelper
     try {
       return response()->json(['success' => $jsonData], HealthCheckConstants::OKAY_CODE);
     } catch (Exception $error) {
-      Log::error($error->getMessage());
+      return FatalExceptionLogHelper::logFatalException($error);
     }
   }
 }

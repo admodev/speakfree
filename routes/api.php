@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use SpeakFree\Domain\Constants\RouteConstants;
 use SpeakFree\Http\Controllers\HealthCheckController;
 use SpeakFree\Http\Controllers\UserController;
 
@@ -16,7 +17,7 @@ use SpeakFree\Http\Controllers\UserController;
 |
 */
 
-Route::prefix('v1')->group(function () {
+Route::prefix(RouteConstants::V1_GROUP_NAME)->group(function () {
   Route::resource('user', UserController::class);
 
   Route::get('health', [HealthCheckController::class, 'index'])->name('health.check');
