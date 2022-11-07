@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use SpeakFree\Domain\Constants\RouteConstants;
+use SpeakFree\Http\Controllers\AuthController;
 use SpeakFree\Http\Controllers\HealthCheckController;
 use SpeakFree\Http\Controllers\UserController;
 
@@ -18,7 +19,12 @@ use SpeakFree\Http\Controllers\UserController;
 */
 
 Route::prefix(RouteConstants::V1_GROUP_NAME)->group(function () {
+  // RESOURCE ROUTES
   Route::resource('user', UserController::class);
 
-  Route::get('health', [HealthCheckController::class, 'index'])->name('health.check');
+  // GET
+  Route::get('health', [HealthCheckController::class, 'index'])->name('health.check.get');
+
+  // POST
+  Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login.post');
 });

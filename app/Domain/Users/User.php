@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 use SpeakFree\Domain\Constants\UsersConstants;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
   use HasApiTokens, HasFactory, Notifiable;
 
