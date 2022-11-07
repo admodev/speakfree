@@ -195,6 +195,10 @@ return [
         SpeakFree\Providers\EventServiceProvider::class,
         SpeakFree\Providers\RouteServiceProvider::class,
 
+        /*
+         * Auth Providers
+         */
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
     ],
 
     /*
