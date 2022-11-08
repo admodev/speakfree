@@ -15,6 +15,14 @@
   text-decoration: none;
 }
 
+.navbar a:active {
+  color: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
+}
+
 /* Page content */
 .content {
   padding: 16px;
@@ -30,4 +38,24 @@
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {
   padding-top: 60px;
+}
+
+/* Move account button to the right corner */
+.accountButton {
+  background: #ededed;
+  border: 1px solid #ccc;
+  float: right;
+  margin: 0.5rem;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.accountButton:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
 }

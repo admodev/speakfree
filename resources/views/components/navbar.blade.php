@@ -11,9 +11,9 @@
   <a href="/register">
     Register
   </a>
-  @if(session()->get('token'))
-  <a href="/account">
-    Account
-  </a>
+  @if(!session()->get('token'))
+    <button class="accountButton">
+      Account
+    </button>
   @endif
 </header>
