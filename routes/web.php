@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 // Web blade templates
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home.view');
 
 Route::get('/login', function () {
   return view('login');
-});
+})->name('login.view');

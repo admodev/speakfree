@@ -2,9 +2,12 @@
 
 namespace SpeakFree\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use SpeakFree\Domain\Constants\HttpConstants;
+use SpeakFree\Helpers\ExceptionLogHelper;
 
 class AuthController extends Controller
 {
@@ -39,7 +42,7 @@ class AuthController extends Controller
     $credentials = request(['email', 'password']);
 
     if (!$token = auth()->attempt($credentials)) {
-      return response()->json(['error' => 'Unathorized'], 401);
+      return $this->redirectAfterLoginError();
     }
 
     return $this->respondWithToken($token);
@@ -91,5 +94,16 @@ class AuthController extends Controller
       'token_type' => 'bearer',
       'expires_in' => auth()->factory()->getTTL() * 60
     ]);
+  }
+
+  protected function redirectAfterLoginError()
+  {
+    try {
+      $loginError = response()->json(['error' => HttpConstants::UNAUTHORIZED_MESSAGE], HttpConstants::UNAUTHORIZED_CODE);
+
+      return redirect()->route('login.view', ['error' => $loginError]);
+    } catch (Exception $error) {
+      return ExceptionLogHelper::logException($error);
+    }
   }
 }
