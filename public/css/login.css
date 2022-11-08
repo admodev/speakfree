@@ -1,8 +1,64 @@
 h1 {
   color: #ffffff;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
+}
+
+input {
+  padding: 8px;
+  border: 1px solid #fafafa;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.buttonRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button {
+  background: #ededed;
+  border: 1px solid #ccc;
+  margin: 0.5rem;
+  padding: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+button:active {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+  outline: none;
+}
+
+@media (max-width: 450px) {
+  .mainContainer {
+    width: 90%;
+  }
+
+  .buttonRow {
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  button {
+    width: 70%;
+    justify-content: center;
+    justify-items: center;
+  }
 }

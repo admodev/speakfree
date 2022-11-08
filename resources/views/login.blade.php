@@ -12,7 +12,7 @@
 @endsection
 
 @section('content')
-  <div>
+  <div class="mainContainer">
     @if (!empty(Request()->error))
       @foreach(Request()->error as $err)
         @if($err['error'] == 'unauthorized')
@@ -26,19 +26,19 @@
     <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('api/v1/auth/login')}}">
       @csrf
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="form-control" required="true">
+        <input type="email" id="email" name="email" placeholder="email@example.com" class="form-control" required="true">
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" class="form-control" required="true">
+        <input type="password" id="password" name="password" placeholder="password12345678" class="form-control" required="true">
       </div>
-      <button type="submit" class="btn btn-primary">
-        Submit
-      </button>
-      <button onclick="history.back()">
-        Go back
-      </button>
+      <div class="buttonRow">
+        <button onclick="history.back()">
+          Go back
+        </button>
+        <button type="submit" class="btn btn-primary">
+          Submit
+        </button>
+      </div>
     </form>
   </div>
 @endsection
