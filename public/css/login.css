@@ -1,0 +1,8 @@
+h1 {
+  color: #ffffff;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}

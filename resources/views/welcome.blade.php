@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'SpeakFree - HOME')
+@section('head')
+  @section('title', 'SpeakFree - HOME')
 
-@section('sidebar')
-    @parent
+  @section('styles')
+  @endsection
+
+  @section('scripts')
+  @endsection
 @endsection
 
 @section('content')
