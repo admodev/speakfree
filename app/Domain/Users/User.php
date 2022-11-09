@@ -3,6 +3,7 @@
 namespace SpeakFree\Domain\Users;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -12,7 +13,7 @@ use SpeakFree\Domain\Constants\UsersConstants;
 
 class User extends Authenticatable implements JWTSubject
 {
-  use HasApiTokens, HasFactory, Notifiable;
+  use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
   /**
    * Database table name for the model.

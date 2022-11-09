@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('post', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('content');
+            $table->unsignedBigInteger('posted_by');
+            $table->foreign('posted_by')->references('id')->on('user');
             $table->timestamps();
+            $table->timestamp('deleted_at');
         });
     }
 

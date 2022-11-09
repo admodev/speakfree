@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('followers', function (Blueprint $table) {
+        Schema::create('follower', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('follower');
+            $table->unsignedBigInteger('following');
+            $table->foreign('follower')->references('id')->on('user');
+            $table->foreign('following')->references('id')->on('user');
             $table->timestamps();
+            $table->timestamp('deleted_at');
         });
     }
 
