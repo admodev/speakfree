@@ -1,10 +1,10 @@
 h1 {
-  color: #ffffff;
+  color: #272727;
   text-align: center;
 }
 
 h3 {
-  color: #ffffff;
+  color: #272727;
   text-align: center;
   overflow: hidden;
   border-right: .15em solid orange;
@@ -26,4 +26,19 @@ h3 {
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: orange; }
+}
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, p {
+    color: #fafafa;
+  }
+
+  input {
+    border-color: #fafafa;
+  }
+
+  button {
+    background-color: #fafafa;
+    color: 272727;
+  }
 }

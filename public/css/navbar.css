@@ -42,7 +42,7 @@
 
 /* Move account button to the right corner */
 .accountButton {
-  background: #ededed;
+  background: #272727;
   border: 1px solid #ccc;
   float: right;
   margin: 0.5rem;
@@ -53,9 +53,32 @@
 }
 
 .accountButton:active {
-  background: #e5e5e5;
+  background: #141313;
   -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;
    outline: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  h1, h2, h3, h4, p {
+    color: #fafafa;
+  }
+
+  input {
+    border-color: #fafafa;
+  }
+
+  button {
+    background-color: #fafafa;
+    color: 272727;
+  }
+
+  .accountButton {
+    background: #ededed;
+  }
+
+  .accountButton:active {
+    background: #e5e5e5;
+  }
 }
