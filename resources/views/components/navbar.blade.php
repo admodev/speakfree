@@ -8,7 +8,7 @@
   <a href="/login">
     Login
   </a>
-  <a href="/register">
+  <a href="/signup">
     Register
   </a>
   @if(!empty(session()->get('token')))

@@ -32,7 +32,9 @@ class UserController extends Controller
     $this->validateUserCreation($fields);
     $this->createValidatedUser($fields);
 
-    return ResponseHelper::createResponse('user created successfully', HttpConstants::OKAY_CODE);
+    $responseMessage = ResponseHelper::createResponse('user created successfully', HttpConstants::OKAY_CODE);
+
+    return redirect()->route('home.view', ['responseMessage' => $responseMessage]);
   }
 
   protected function createValidatedUser($userData)
