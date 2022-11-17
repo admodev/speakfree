@@ -24,6 +24,7 @@ Route::prefix(RouteConstants::V1_GROUP_NAME)->group(function () {
 
   // GET
   Route::get('health', [HealthCheckController::class, 'index'])->name('health.check.get');
+  Route::post('auth/me', [AuthController::class, 'me'])->name('auth.me.get');
 
   // POST
   Route::post('auth/login', [AuthController::class, 'login'])->name('auth.login.post');

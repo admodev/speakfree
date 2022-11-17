@@ -45,9 +45,7 @@ class AuthController extends Controller
       return $this->redirectAfterLoginError();
     }
 
-    $userToken = $this->respondWithToken($token);
-
-    return $this->redirectAfterLogin($userToken);
+    return $this->respondWithToken($token);
   }
 
   /**
@@ -96,25 +94,5 @@ class AuthController extends Controller
       'token_type' => 'bearer',
       'expires_in' => auth()->factory()->getTTL() * 60
     ]);
-  }
-
-  protected function redirectAfterLoginError()
-  {
-    try {
-      $loginError = response()->json(['error' => HttpConstants::UNAUTHORIZED_MESSAGE], HttpConstants::UNAUTHORIZED_CODE);
-
-      return redirect()->route('login.view', ['error' => $loginError]);
-    } catch (Exception $error) {
-      return ExceptionLogHelper::logException($error);
-    }
-  }
-
-  public function redirectAfterLogin($userToken)
-  {
-    try {
-      return redirect()->route('home.view', ['userToken' => $userToken]);
-    } catch (Exception $error) {
-      return ExceptionLogHelper::logException($error);
-    }
   }
 }
